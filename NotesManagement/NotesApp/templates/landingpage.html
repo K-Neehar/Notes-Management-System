@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="icon" type="text/css" href="{% static 'images/logo.png' %}">
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Notes Management App</title>
+    <style>
+        body{
+            background: url('{% static "images/lofi.gif" %}') no-repeat center center fixed;
+            background-size:cover;
+            height:100vh;
+        }
+        .white-text {
+            color: white;
+        }
+        .white-button {
+            color: black;
+            background-color: white;
+            border-color: white;
+            width: 80px; /* Set the width for both buttons */
+            margin-right: 10px; /* Add margin between buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-4 white-text text-center">
+                <br><br><br><br><br><br><br><br><br>   
+                <h1 class="h1-reponsive white-text text-uppercase font-weight-bold pt-md-5 pt-5 wow fadeInDown" data-wow-delay="0.3s"><strong>Notes Management App</strong></h1>
+                <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+                <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Notes: Connecting people</strong></h5>
+                <br>
+                <a href="{% url 'lgn' %}" class="btn btn-outline-white white-button wow fadeInDown" data-wow-delay="0.4s">Login</a>
+                <a href="{% url 'rgr' %}" class="btn btn-outline-white white-button wow fadeInDown" data-wow-delay="0.4s">Register</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

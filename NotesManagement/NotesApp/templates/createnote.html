@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create Notes{% endblock %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alex+Brush|Allura|Arizonia|Bad+Script|Berkshire+Swash|Calligraffitti|Caveat|Cedarville+Cursive|Clicker+Script|Cookie|Courgette|Damion|Dancing+Script|Gloria+Hallelujah|Great+Vibes|Herr+Von+Muellerhoff|Indie+Flower|Italianno|Just+Another+Hand|Kaushan+Script|Leckerli+One|Marck+Script|Merienda|Merienda+One|Montez|Mr+Dafoe|Niconne|Nothing+You+Could+Do|Pacifico|Parisienne|Petit+Formal+Script|Pinyon+Script|Rancho|Rochester|Sacramento|Satisfy|Shadows+Into+Light|Tangerine|Yellowtail|Yesteryear|PT+Sans">
+{% block styles %}
+    {{ block.super }}
+    <style>
+        /* Add the provided CSS styles here */
+        #ch1 {
+            font-family: 'Pacifico',cursive;
+            color: #000000;
+            font-size: 2rem;
+        }
+        .create-notes-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust color and transparency here */
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .jumbotron h1.display-9 {
+          font-size: 40px; /* Adjust the font size as needed */
+      }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="jumbotron shadow-lg">
+                <div class="text-center">
+                    <img src="https://media1.giphy.com/media/3pTtbLJ7Jd0YM/giphy.gif?cid=ecf05e473518l7d2tc2v3r6h1u775m4w2x7p5ph0twi1qrdx&amp;ep=v1_gifs_related&amp;rid=giphy.gif&amp;ct=g">
+                    <!--<img src="{% static 'images/cat.png' %}" alt="Your Image" class="img-fluid img-thumbnail mt-1">-->
+                </div>
+                <br>
+                <h1 class="display-9">Create Notes Here , Freely</h1>
+                <br>
+                <div class="text-center">
+                <p class="lead">Create your notes easily here.</p>
+                </div>
+                <hr class="my-4">
+                <div class="text-center">
+                <p>The notes created by you .</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-lg-6">
+            <br><br>
+            <div class="card shadow-lg create-notes-container">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h4>Create Notes</h4>
+                        <br>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" name="sb" placeholder="Enter Subject Title" class="form-control my-2">
+                        <textarea class="form-control" rows="12" placeholder="Enter the Text" name="note"></textarea>
+                        <input type="submit" value="Create Note" class="btn btn-block btn-outline-success my-2">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<body>
+    <br>
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2023 Your Notes App. All rights reserved.
+    </footer>
+</body>
+{% endblock %}

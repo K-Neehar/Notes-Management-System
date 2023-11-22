@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}Accepted Notes{% endblock %}
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<title>Accepted Notes List</title>
+</head>
+<body>
+	<div class="container mt-7">
+		<div class="row">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-8 center-container"> <!-- Add the center-container class -->
+				<div class="jumbotron shadow-lg">
+					<div class="text-center">
+						<img src="{% static 'images/accepted.gif' %}" alt="Your Image" class="img-fluid img-thumbnail mt-1">
+					</div>
+					<br>
+					<div class="text-center">
+						<h1 class="display-9">Acceptance of other notes to you</h1>
+					</div>
+					<br>
+					<div class="text-center">
+						<p class="lead">The notes which are written by others are..</p>
+					</div>
+					<hr class="my-4">
+					<div class="text-center">
+						<p>Accepted by them , now you can view those.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid mt-4">
+		<div class="row">
+			<div class="col">
+				<div class="card shadow-lg">
+					<div class="card-body">
+						<h4>Notes Details</h4>
+						<table class="table">
+							<tr>
+								<th>S.No</th>
+								<th>Subject Name</th>
+								<th>Notes</th>
+							</tr>
+							{% for i in requests %}
+							<tr>
+								<td>{{forloop.counter}}</td>
+								<td>{{i.s_sub}}</td>
+								<!-- <td>{{i.nid}}</td> -->
+                                <td>{{ i.s_note|slice:":50" }}{% if i.note|length > 50 %}...{% endif %}</td>
+								<td>
+									<div class="row">
+                                        <div class="col-md-3">
+											<a href="{% url 'viewreq' ID i.nid %}" class="btn btn-outline-primary form-control">View</a>
+										</div>
+										<div class="col-md-2">
+                                            <a href="{% url 'like' ID i.nid %}" class="btn btn-outline-success form-control"><i class="far fa-thumbs-up"></i></a>
+                                        </div>
+										<div class="col-md-2">
+                                            <a href="{% url 'dislike' ID i.nid %}" class="btn btn-outline-danger form-control" onclick=""><i class="far fa-thumbs-down"></i></a>
+                                        </div>
+									</div>
+								</td>
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+{% endblock %}

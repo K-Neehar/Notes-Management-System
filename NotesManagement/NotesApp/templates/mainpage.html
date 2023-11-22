@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create Notes{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Notes App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      /* Add custom CSS styles here */
+      .jumbotron h1.display-4 {
+          font-size: 46px; /* Adjust the font size as needed */
+      }
+  </style>
+  </head>
+<body style="background-color: rgb(202, 201, 207);">
+    <br><br>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="jumbotron shadow-lg">
+                    <h1 class="display-4">Welcome to Your Notes App</h1>
+                    <br>
+                    <div class="text-center">
+                    <p class="lead">Manage your notes easily with our intuitive app.</p>
+                    </div>
+                    <hr class="my-4">
+                    <div class="text-center">
+                    <p>Keep track of your important information and stay organized.</p>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                      <a class="btn btn-primary btn-md" href="{% url 'hm' ID %}" role="button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <br>
+                <div class="text-center">
+                    <img src="{% static 'images/bg2.jpg' %}" alt="Your Image" class="img-fluid img-thumbnail mt-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2023 Your Notes App. All rights reserved.
+    </footer>
+</body>
+</html>
+
+{% endblock %}

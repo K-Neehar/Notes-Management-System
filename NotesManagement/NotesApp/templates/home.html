@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Create Notes{% endblock %}
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Notes Management App</title>
+    <style>
+        /* body {
+            background: url('{% static "images/home.gif"  %}') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+        } */
+        /* Apply transparent background to the card */
+        #id1 {
+            background-color: rgba(255, 255, 255, 0.7); /* Adjust alpha value for transparency */
+        }
+    </style>
+</head>
+<body>
+    <div id="id1">
+        <div class="container mt-8">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 center-container"> <!-- Add the center-container class -->
+                    <br>
+                    <div class="jumbotron shadow-lg">
+                        <div class="text-center">
+                            <h4>Hey, {{note.name}}</h4>
+                            <br>
+                            <p>Hey there, ready to supercharge your note-taking game? Check out our awesome Notes Management App – it's like a superhero sidekick for staying organized and teaming up with classmates. You can create, read, edit, and even say goodbye to notes you don't need anymore. But wait, there's more! You can also ask your buddies for their notes right through the app. No more chasing them down or missing out on important stuff. And guess what? You get to decide which notes are cool enough to join your collection – just like being the boss of your own note squad.
+                            
+                            Imagine this: you're prepping for a big test, and you're missing a few puzzle pieces. No worries! With our app, you can shoot a message to your friends, asking them to share their notes. They can send them over in a snap, and you get to say "yes" or "no" – it's like building the ultimate study guide together. So, say hello to stress-free notes and high-fives to teamwork. Get ready to rock your studies like a pro with the Notes Management App!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2023 Your Notes App. All rights reserved.
+    </footer>
+</body>
+</html>
+
+{% endblock %}
+
+
